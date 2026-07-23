@@ -5,14 +5,27 @@
   "main": "scripts/keep_alive.js",
   "type": "module",
   "scripts": {
-    "start": "node scripts/keep_alive.js"
+    "start": "node scripts/keep_alive.js",
+    "test": "node scripts/keep_alive.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/supa-pulse.git"
   },
   "keywords": [
     "supabase",
-    "cron",
     "keep-alive",
-    "github-actions"
+    "cron",
+    "heartbeat",
+    "github-actions",
+    "supabase-free-tier",
+    "auto-ping",
+    "database-keepalive"
   ],
-  "author": "",
-  "license": "MIT"
+  "author": "SupaPulse Contributors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/your-username/supa-pulse/issues"
+  },
+  "homepage": "https://github.com/your-username/supa-pulse#readme"
 }
