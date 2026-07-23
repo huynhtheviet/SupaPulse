@@ -1,0 +1,26 @@
+name: SupaPulse Heartbeat
+
+on:
+  schedule:
+    # Runs 3 times a day: 00:00, 08:00, 16:00 UTC (07:00, 15:00, 23:00 GMT+7)
+    - cron: '0 0,8,16 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI anytime
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Keep Alive Script
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: node scripts/keep_alive.js

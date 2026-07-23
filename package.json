@@ -1,0 +1,18 @@
+{
+  "name": "supa-pulse",
+  "version": "1.0.0",
+  "description": "Automated heartbeat & cron ping tool to keep Supabase Free Tier projects active 24/7",
+  "main": "scripts/keep_alive.js",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/keep_alive.js"
+  },
+  "keywords": [
+    "supabase",
+    "cron",
+    "keep-alive",
+    "github-actions"
+  ],
+  "author": "",
+  "license": "MIT"
+}
