@@ -4,12 +4,12 @@
 
 **Automated heartbeat & cron ping tool to keep Supabase Free Tier projects active 24/7.**
 
-[![SupaPulse Heartbeat](https://github.com/your-username/supa-pulse/actions/workflows/keep_alive.yml/badge.svg)](https://github.com/your-username/supa-pulse/actions/workflows/keep_alive.yml)
+[![SupaPulse Heartbeat](https://github.com/huynhtheviet/supa-pulse/actions/workflows/keep_alive.yml/badge.svg)](https://github.com/huynhtheviet/supa-pulse/actions/workflows/keep_alive.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/Node.js-%3E%3D20-green.svg)](https://nodejs.org/)
 [![Supabase Compatible](https://img.shields.io/badge/Supabase-Compatible-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com)
-[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](https://github.com/your-username/supa-pulse/pulls)
-[![GitHub Stars](https://img.shields.io/github/stars/your-username/supa-pulse?style=social)](https://github.com/your-username/supa-pulse)
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg)](https://github.com/huynhtheviet/supa-pulse/pulls)
+[![GitHub Stars](https://img.shields.io/github/stars/huynhtheviet/supa-pulse?style=social)](https://github.com/huynhtheviet/supa-pulse)
 
 <p align="center">
   <a href="#-why-supapulse">Why SupaPulse</a> •
@@ -94,7 +94,7 @@ CREATE POLICY "Allow anon delete keep_alive_logs" ON public.keep_alive_logs FOR 
    git add .
    git commit -m "feat: initial release of SupaPulse ⚡"
    git branch -M main
-   git remote add origin https://github.com/<YOUR-USERNAME>/supa-pulse.git
+   git remote add origin https://github.com/<huynhtheviet>/supa-pulse.git
    git push -u origin main
    ```
 
@@ -173,7 +173,7 @@ Once every 1 to 3 days is sufficient to prevent deactivation (Supabase pauses af
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!  
-Feel free to check the [issues page](https://github.com/your-username/supa-pulse/issues).
+Feel free to check the [issues page](https://github.com/huynhtheviet/supa-pulse/issues).
 
 ---
 
