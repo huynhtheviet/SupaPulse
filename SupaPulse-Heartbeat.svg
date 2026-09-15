@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">SupaPulse Heartbeat</title>
+  <desc id="desc">A green heart containing a heartbeat pulse and database symbol.</desc>
+  <defs>
+    <linearGradient id="heartGradient" x1="170" y1="160" x2="835" y2="890" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3EEDA3"/>
+      <stop offset="0.48" stop-color="#12C98A"/>
+      <stop offset="1" stop-color="#07977D"/>
+    </linearGradient>
+    <linearGradient id="heartShade" x1="522" y1="266" x2="748" y2="850" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#006C61"/>
+      <stop offset="1" stop-color="#00574F"/>
+    </linearGradient>
+    <linearGradient id="dbGradient" x1="636" y1="348" x2="816" y2="584" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#76F7B9"/>
+      <stop offset="1" stop-color="#21D79B"/>
+    </linearGradient>
+    <filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur"/>
+      <feOffset dy="12" result="offset"/>
+      <feComposite in="offset" in2="SourceAlpha" operator="out" result="cut"/>
+      <feColorMatrix in="cut" values="0 0 0 0 0  0 0 0 0 0.20  0 0 0 0 0.17  0 0 0 .28 0"/>
+      <feComposite in2="SourceGraphic" operator="over"/>
+    </filter>
+    <clipPath id="heartClip">
+      <path d="M512 893C447 839 205 690 125 506 66 371 141 204 299 188c89-9 164 38 213 110 49-72 124-119 213-110 158 16 233 183 174 318-80 184-322 333-387 387Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Transparent canvas -->
+  <path d="M512 893C447 839 205 690 125 506 66 371 141 204 299 188c89-9 164 38 213 110 49-72 124-119 213-110 158 16 233 183 174 318-80 184-322 333-387 387Z"
+        fill="url(#heartGradient)" filter="url(#innerShadow)"/>
+
+  <!-- Deep teal inner field improves contrast at small sizes -->
+  <path d="M168 513c-37-99 18-223 136-236 96-10 168 63 208 143 42-80 116-153 211-143 118 13 173 137 136 236-54 144-238 275-347 363-109-88-290-219-344-363Z"
+        fill="url(#heartShade)" opacity="0.92"/>
+
+  <!-- Database stack -->
+  <g clip-path="url(#heartClip)">
+    <ellipse cx="718" cy="391" rx="112" ry="42" fill="url(#dbGradient)"/>
+    <path d="M606 392v63c0 23 50 42 112 42s112-19 112-42v-63c0 23-50 42-112 42s-112-19-112-42Z" fill="url(#dbGradient)"/>
+    <path d="M606 470v63c0 23 50 42 112 42s112-19 112-42v-63c0 23-50 42-112 42s-112-19-112-42Z" fill="url(#dbGradient)"/>
+    <path d="M606 548v54c0 23 50 42 112 42s112-19 112-42v-54c-19 20-62 32-112 32s-93-12-112-32Z" fill="url(#dbGradient)"/>
+  </g>
+
+  <!-- Heartbeat pulse -->
+  <path d="M132 574H310c22 0 39-11 50-31l75-143c13-25 50-21 57 6l76 301c8 33 53 38 69 8l63-117c10-19 30-30 51-30h151"
+        fill="none" stroke="#FFFFFF" stroke-width="58" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M132 574H310c22 0 39-11 50-31l75-143c13-25 50-21 57 6l76 301c8 33 53 38 69 8l63-117c10-19 30-30 51-30h151"
+        fill="none" stroke="#EFFFF8" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+</svg>
