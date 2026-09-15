@@ -4,7 +4,7 @@
 
 **Automated heartbeat & cron ping tool to keep Supabase Free Tier projects active 24/7.**
 
-[![SupaPulse Heartbeat](https://github.com/huynhtheviet/supa-pulse/actions/workflows/keep_alive.yml/badge.svg)](https://github.com/huynhtheviet/supa-pulse/actions/workflows/keep_alive.yml)
+[![SupaPulse Heartbeat](https://github.com/huynhtheviet/supa-pulse/SupaPulse-Heartbeat.svg)](https://github.com/huynhtheviet/supa-pulse/.github/workflows/keep_alive.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/Node.js-%3E%3D20-green.svg)](https://nodejs.org/)
 [![Supabase Compatible](https://img.shields.io/badge/Supabase-Compatible-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com)
