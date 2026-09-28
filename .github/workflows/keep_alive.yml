@@ -22,6 +22,12 @@ jobs:
 
       - name: Run SupaPulse Heartbeat Script
         env:
+          # Single project (legacy)
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          # Multiple projects as a JSON array: [{"name":"app","url":"...","key":"..."}]
+          SUPABASE_PROJECTS: ${{ secrets.SUPABASE_PROJECTS }}
+          # Exposes numbered secrets (SUPABASE_URL_1, SUPABASE_KEY_1, SUPABASE_NAME_1, ...)
+          # so new projects can be added without editing this workflow
+          SUPAPULSE_SECRETS: ${{ toJSON(secrets) }}
         run: node scripts/keep_alive.js
