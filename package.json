@@ -5,7 +5,7 @@
   "main": "scripts/keep_alive.js",
   "type": "module",
   "scripts": {
-    "start": "node scripts/keep_alive.js",
+    "start": "node --env-file=.env scripts/keep_alive.js",
     "test": "node scripts/keep_alive.js"
   },
   "repository": {

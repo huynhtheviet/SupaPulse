@@ -40,6 +40,7 @@ Because Supabase's internal `pg_cron` extension stops running when the database 
 - 🔄 **Real DB Activity**: Performs actual `SELECT` (Read) and `INSERT` (Write) database calls to ensure Supabase detects activity.
 - 🧹 **Auto Log Pruning**: Automatically deletes heartbeat logs older than 7 days to keep your database clean and minimal.
 - 🛡️ **Secure**: Credentials stored safely in GitHub Encrypted Secrets with Row Level Security (RLS) policies.
+- 🗂️ **Multi-Project Support**: Keep any number of Supabase projects alive from a single workflow run.
 - ⏱️ **Flexible Schedule**: Default 3x daily (`00:00`, `08:00`, `16:00` UTC) or customizable to your needs.
 - 🌐 **No-Code Fallback**: Supports 3rd-party web cron services like `cron-job.org` if you prefer not to use GitHub Actions.
 
@@ -108,10 +109,41 @@ CREATE POLICY "Allow anon delete keep_alive_logs" ON public.keep_alive_logs FOR 
      - `SUPABASE_URL`: `https://your-project-ref.supabase.co`
      - `SUPABASE_KEY`: `your-anon-or-service-role-key`
 
+   - Want to keep **multiple Supabase projects** alive? See [Multiple Projects](#%EF%B8%8F-multiple-supabase-projects) below.
+
 4. **Verify Execution**:
    - Go to the **Actions** tab in your GitHub repository.
    - Select **SupaPulse Heartbeat** -> Click **Run workflow**.
    - Check your Supabase `keep_alive_logs` table to confirm the log entry!
+
+---
+
+## 🗂️ Multiple Supabase Projects
+
+SupaPulse can ping any number of Supabase projects in a single run. Projects are pinged in parallel, a summary is printed at the end, and the workflow fails if **any** project fails (so you get notified), while the other projects are still pinged.
+
+> Run [`sql/schema.sql`](./sql/schema.sql) in the SQL Editor of **every** project you want to keep alive.
+
+**Option A — Numbered secrets (recommended)**: add one set of secrets per project. No workflow changes needed, just keep adding numbers:
+
+| Secret | Example |
+|---|---|
+| `SUPABASE_URL_1` | `https://project-one.supabase.co` |
+| `SUPABASE_KEY_1` | `project-one-anon-key` |
+| `SUPABASE_NAME_1` *(optional, shown in logs)* | `my-app` |
+| `SUPABASE_URL_2` | `https://project-two.supabase.co` |
+| `SUPABASE_KEY_2` | `project-two-anon-key` |
+
+**Option B — One JSON secret**: create a single `SUPABASE_PROJECTS` secret containing a JSON array:
+
+```json
+[
+  { "name": "my-app",  "url": "https://project-one.supabase.co", "key": "project-one-anon-key" },
+  { "name": "my-blog", "url": "https://project-two.supabase.co", "key": "project-two-anon-key" }
+]
+```
+
+All options can be combined with the legacy `SUPABASE_URL` / `SUPABASE_KEY` secrets. Duplicate URLs are pinged only once.
 
 ---
 
@@ -140,7 +172,7 @@ To test the heartbeat script locally on your machine:
    ```bash
    cp .env.example .env
    ```
-2. Fill in your `SUPABASE_URL` and `SUPABASE_KEY` inside `.env`.
+2. Fill in your `SUPABASE_URL` and `SUPABASE_KEY` inside `.env` (or the numbered / JSON variables for multiple projects).
 3. Run the script:
    ```bash
    npm start
